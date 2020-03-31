@@ -42,7 +42,7 @@
         // assigned message
         $('#numAssigned').attr('hidden',false);
 
-        // added playerName
+        // add playerName
         $(this).siblings().text(playerName);
 
         // break after match
@@ -55,35 +55,16 @@
 
     // show which player won
     $('.number').on('click',function(){
-      var playerWon = $(this).siblings().text();
+      var playerWon = $(this).next().text();
 
       // No player present
-      if(playerWon == ''){
-        $('#mainContent').append(`
-          <div class="container">
-            <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
-              No player assigned!
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
-        `);
-        return false;
+      if(playerWon === ''){
+        $('#message').text('No player assigned!');
       } else {
 
         // player found
-        $('#mainContent').append(`
-          <div class="container">
-            <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
-              Player <strong>`+ playerWon +`</strong> won!!
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
-        `);
+        $('#message').html('Player <b>'+ playerWon +'</b> won!');
       }
-    })
+    });
   });
 });

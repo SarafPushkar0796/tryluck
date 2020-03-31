@@ -5,7 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" href="promise.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="promise-512.png" sizes="16x16" type="image/png">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+
+    <link rel="apple-touch-icon" href="./images/logo-256x256.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#343a40">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -18,6 +26,16 @@
   <style>
     *{font-family: 'Work Sans', sans-serif;}
   </style>
+  <script type="text/javascript">
+    
+    // Service worker registering
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('./serviceWorker.js')
+        .then(reg => console.log('service worker registered'))
+        .catch(err => console.log('service worker not registered', err));
+    }
+
+  </script>
   <body oncontextmenu="return false">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,45 +113,45 @@
     <div class="container" id="mainContent">
       <div class="row mt-5">
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">1</button>
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">1</button>
           <button class="playerName" hidden></button>
         </div>
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">2</button>
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">2</button>
           <button class="playerName" hidden></button>
         </div>
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">3</button>
-          <button class="playerName" hidden></button>
-        </div>
-      </div>
-
-      <div class="row mt-4">
-        <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">4</button>
-          <button class="playerName" hidden></button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">5</button>
-          <button class="playerName" hidden></button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">6</button>
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">3</button>
           <button class="playerName" hidden></button>
         </div>
       </div>
 
       <div class="row mt-4">
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">7</button>
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">4</button>
           <button class="playerName" hidden></button>
         </div>
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">8</button>
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">5</button>
           <button class="playerName" hidden></button>
         </div>
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">9</button>
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">6</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">7</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">8</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">9</button>
           <button class="playerName" hidden></button>
         </div>
       </div>
@@ -196,13 +214,18 @@
 
       <br/><button class="btn btn-success btn-block shadow-sm" id="reset">Reset</button>
 
-      <!-- Player won alert will show here -->
+      <!-- App message -->
+      <center>
+        <div class="container mt-3">
+          <span id="message" class="text-info"></span>
+        </div>
+      </center>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

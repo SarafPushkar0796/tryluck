@@ -1,0 +1,28 @@
+{
+  "lang" : "en",
+  "name": "TryLuck",
+  "short_name": "TryLuck",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "description" : "A luck game.",
+  "background_color": "#343a40",
+  "theme_color": "#343a40", 
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./promise-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "./promise-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }, 
+    {
+      "src": "./promise-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
