@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="promise.png" sizes="16x16" type="image/png">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <title>Try your LUCK!</title>
+  </head>
+  <style>
+    *{font-family: 'Work Sans', sans-serif;}
+  </style>
+  <body oncontextmenu="return false">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" data-toggle="modal" data-target="#staticBackdrop">Try you 
+        <span style="color: #ff0000;">L</span>
+        <span style="color: #ff7f00;">U</span>
+        <span style="color: #ffaa00;">C</span>
+        <span style="color: #aadd22;">K</span> !
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <span class="text-white">Developed by <a class="text-warning" href="https://personal-site-v2.000webhostapp.com">Pushkar Saraf</a></span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Welcome to Try you 
+              <span style="color: #ff0000;">L</span>
+              <span style="color: #ff7f00;">U</span>
+              <span style="color: #ffaa00;">C</span>
+              <span style="color: #aadd22;">K</span> !</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Assign player names to numbers and call out numbers randomly, who's name shows up when you click the number is the winner!</p>
+            <p><b>Make sure only one person assigns numbers and is not involved in the game!!</b></p>
+          </div>
+          <div class="modal-footer">
+            <button id="gt" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPlayer">Got it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add players -->
+    <div class="modal fade" id="addPlayer" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Add players</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input id="playerName" class="form-control" type="text" placeholder="Player name" required><br/>
+              <input id="playerNumber" class="form-control" type="number" placeholder="Lucky number" pattern="[0-9]*" inputmode="numeric" required>
+              <small id="numbHelp" class="form-text text-success">Choose any number from 1 - 20</small>
+            </div>
+            <span id="numAssigned" class="text-warning" hidden><strong>Lucky number assigned!</strong><br/>Go ahead and add another player!</span>
+            <span id="numNotAssigned" class="text-danger" hidden><strong>Number should be between 1-20!</strong></span>
+          </div>
+          <div class="modal-footer">
+            <button id="clearFields" type="button" class="btn btn-outline-primary">Clear</button>
+            <button id="assignPlayer" type="button" class="btn btn-primary">Assign</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container" id="mainContent">
+      <div class="row mt-5">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">1</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">2</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">3</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">4</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">5</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">6</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">7</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">8</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disabl number">9</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">10</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">11</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">12</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">13</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">14</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">15</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">16</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">17</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">18</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-6">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">19</button>
+          <button class="playerName" hidden></button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-outline-danger btn-block shadow-sm btn-disable number">20</button>
+          <button class="playerName" hidden></button>
+        </div>
+      </div>
+
+      <br/><button class="btn btn-success btn-block shadow-sm" id="reset">Reset</button>
+
+      <!-- Player won alert will show here -->
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
